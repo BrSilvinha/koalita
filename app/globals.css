@@ -1,21 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --honey: #f5a623;
-  --honey-dark: #c47d00;
-  --cream: #fdf6e3;
-  --brown: #6b3a2a;
-  --brown-light: #a0522d;
+  --accent:      #e91e63;
+  --accent-dark: #ad1457;
+  --text:        #4a1942;
+  --text-mid:    #880e4f;
+  --text-light:  #ce93d8;
+  --bg:          #fff0f8;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
-  background-color: var(--cream);
-  color: var(--brown);
+  background: linear-gradient(160deg, #fff0f5 0%, #fce4ec 45%, #f3e5f5 100%);
+  background-attachment: fixed;
+  color: var(--text);
   font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
 }
 
 .pixel-art {
@@ -23,38 +24,29 @@ body {
   image-rendering: crisp-edges;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--cream); }
-::-webkit-scrollbar-thumb { background: var(--honey); border-radius: 3px; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; opacity: 0.5; }
 
 @keyframes transformPulse {
-  0%   { transform: scale(1); opacity: 1; }
+  0%   { transform: scale(1);   opacity: 1; }
   50%  { transform: scale(1.2); opacity: 0.3; filter: blur(6px); }
-  100% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
 }
-
 @keyframes floatBounce {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-10px); }
 }
-
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
-}
-
-@keyframes honeyDrip {
-  0%   { transform: translateY(-10px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
 }
 
 .animate-float      { animation: floatBounce 3s ease-in-out infinite; }
 .animate-fade-up    { animation: fadeInUp 0.6s ease forwards; }
 .animate-transform  { animation: transformPulse 1.4s ease-in-out; }
 .animate-blink      { animation: blink 1s step-end infinite; }
-.animate-honey-drip { animation: honeyDrip 0.5s ease forwards; }
